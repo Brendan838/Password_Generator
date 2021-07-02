@@ -1,5 +1,38 @@
+
+
+
+function randoNumba(limit){
+var randoCalc = Math.floor(Math.random() * limit)
+return randoCalc
+}
+
+var numbers  = ["0","9","8","7","6","5","4","3","2","1"]
+
+
+function getRandomChoice(_insertArray){
+  var index = randoNumba(_insertArray.length);
+  return _insertArray[index]; 
+}
+
+var generatedPassword = "";
+
+for (var i = 0; i < 8; i++) {
+  generatedPassword += getRandomChoice(numbers)
+}
+
+console.log(generatedPassword)
+
+/*
+
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate")
+var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numberCharString = "0123456789";
+var specialCharString = "!@#$%^&*()";
+
+console.log(Math.floor(Math.random() * 26))
+
 
 // Write password to the #password input
 function writePassword() {
@@ -33,16 +66,35 @@ if (8 <= noOfCharacters <= 128) {
 
   var specialChar = confirm("Would you like your password to contain special characters?")
 
-}
-}
-}
+// Generate a password using length, lower, upper, number, and special
 
-/* var password = generatePassword()
-  
+
+
+
+
+
+generatePassword()
+
+
+
+
+
+  password = generatePassword()
+
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
-*/
+
+}
+}
+}
+
+  
+  
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+*/
