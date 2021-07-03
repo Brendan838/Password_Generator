@@ -1,41 +1,22 @@
 
-
-
-function randoNumba(limit){
-var randoCalc = Math.floor(Math.random() * limit)
-return randoCalc
-}
-
-var numbers  = ["0","9","8","7","6","5","4","3","2","1"]
-
-
-function getRandomChoice(_insertArray){
-  var index = randoNumba(_insertArray.length);
-  return _insertArray[index]; 
-}
-
-var generatedPassword = "";
-
-for (var i = 0; i < 8; i++) {
-  generatedPassword += getRandomChoice(numbers)
-}
-
-console.log(generatedPassword)
-
-/*
-
 // Assignment Code
-var generateBtn = document.querySelector("#generate")
-var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
-var upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numberCharString = "0123456789";
-var specialCharString = "!@#$%^&*()";
+var generateBtn = document.querySelector("#generate");
+// Arrays for random characters
 
-console.log(Math.floor(Math.random() * 26))
+var lowerCaseString = "abcdefghijklmnopqrstuvwxyz"
+var upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numberCharString = "1234567890"
+var specialCharString = "!@#$%^&*()"
 
+
+//random number generator for a specified range
+function randomNumber(limit){
+var randomCalc = Math.floor(Math.random() * limit)
+return randomCalc
+}
 
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
 
 // Initial prompt and data validation of # of characters 
 var noOfCharacters = prompt("How many characters would you like your password to contain?") 
@@ -58,43 +39,86 @@ terminate()
 
 // Secondary prompts if valid number is entered 
 if (8 <= noOfCharacters <= 128) {
-  var lowerCase = confirm("Would you like your password to contain lower-case letters?")
 
-  var upperCase = confirm("Would you like your password to contain upper-case letters?")
+  var lowerCase = confirm("Would you like your password to contain lowercase letters?")
+    
+
+  var upperCase = confirm("Would you like your password to contain uppercase letters?")
+   
 
   var numberChar = confirm("Would you like your password to contain numbers?")
-
+    
+  
   var specialChar = confirm("Would you like your password to contain special characters?")
+  
 
-// Generate a password using length, lower, upper, number, and special
+//Concat into final Array
+var finalArray = []
 
+  if (lowerCase === true) {
+    finalArray += finalArray.concat(lowerCaseString) 
+    }
+ 
+  if (upperCase === true) {
+    finalArray += finalArray.concat(upperCaseString) 
+    }
 
+  if (numberChar === true) {
+    finalArray += finalArray.concat(numberCharString) 
+    }
 
+  if (specialChar === true) {
+    finalArray += finalArray.concat(specialCharString) 
+    }
+  
 
+// Write password to the #password input
 
+//generate a string of the input length
+var generatedPassword = [];
 
-generatePassword()
+//select a random character from the final array
+function getRandomChoice(finalArray){
+  var index = randomNumber(finalArray.length);
+  return finalArray[index]; 
+}
 
+for (var i = 0; i < noOfCharacters; i++) {
+  generatedPassword += getRandomChoice(finalArray) 
+}
+ 
+}
+}
+return generatedPassword
+}
 
-
-
-
-  password = generatePassword()
-
+function writePassword() {
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
-
 }
-}
-}
-
-  
-  
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
 
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
